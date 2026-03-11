@@ -4,12 +4,13 @@
 <meta charset="UTF-8">
 <title>JPTO | Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: 'Inter', sans-serif;
   margin: 0;
-  background: #F5F5F5;
+  background: #ffffff;
   color: #111;
   animation: fadeIn 1s ease-in;
 }
@@ -20,35 +21,34 @@ body {
 }
 
 header {
-  padding: 100px 20px 60px;
+  padding: 140px 20px 80px;
   text-align: center;
 }
 
 h1 {
-  font-size: 40px;
-  margin: 0;
+  font-size: 48px;
   font-weight: 600;
-  letter-spacing: -1px;
+  letter-spacing: -1.5px;
 }
 
 .subtitle {
-  margin-top: 10px;
+  margin-top: 12px;
   font-size: 18px;
-  color: #666;
+  color: #777;
 }
 
 .projects {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px 100px;
+  padding: 60px 20px 120px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 60px;
 }
 
 .project {
   text-align: left;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .project:hover {
@@ -58,10 +58,22 @@ h1 {
 
 .project img {
   width: 100%;
-  height: 300px;          /* controls thumbnail height */
-  object-fit: cover;      /* crops image nicely */
-  display: block;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
   transition: transform 0.4s ease;
+}
+
+  .project {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.project.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .adjust-right {
@@ -152,6 +164,18 @@ a {
 <footer>
   Contact — jpdelatobert@gmail.com
 </footer>
+  <script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
 
+document.querySelectorAll(".project").forEach(el=>{
+  observer.observe(el);
+  });
+  </script>
 </body>
 </html>
