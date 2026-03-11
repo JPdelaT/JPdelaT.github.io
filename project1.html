@@ -13,6 +13,14 @@ body {
   color: #111;
   animation: fadeIn 0.8s ease-in;
 }
+  body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+}
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
