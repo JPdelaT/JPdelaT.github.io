@@ -15,15 +15,16 @@ body {
   background: linear-gradient(
     120deg,
     #ffffff,
-    #f7f7f9,
+    #eef2ff,
+    #f5f7ff,
     #ffffff
   );
 
-  background-size: 200% 200%;
-  animation: gradientMove 18s ease infinite;
+  background-size: 300% 300%;
+  animation: gradientMove 14s ease infinite;
 }
 
-  @keyframes gradientMove {
+@keyframes gradientMove {
   0% {
     background-position: 0% 50%;
   }
@@ -37,11 +38,11 @@ body {
   }
 }
 
-  body::before {
+ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  opacity: 0.035;
+  opacity: 0.015;
   pointer-events: none;
   background-image: url("https://grainy-gradients.vercel.app/noise.svg");
 }
